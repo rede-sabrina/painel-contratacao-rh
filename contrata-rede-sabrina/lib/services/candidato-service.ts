@@ -73,3 +73,18 @@ export async function deleteCandidato(id: number): Promise<void>{
         throw new Error('Erro ao deletar candidato');
     }
 }
+
+//buscar candidato por status
+export async function getCandidatosByStatis(status: Candidato['status']): Promise<Candidato[]>{
+    const {data, error} = await supabase
+    .from('candidatos')
+    .select('*')
+    .eq('status', status)
+    .order('criado_em', {ascending: false});
+
+    if(error){
+        console.error('Erro ao buscar candidatos por status: ', error);
+        return [];
+    }
+    return data as Candidato[];
+}

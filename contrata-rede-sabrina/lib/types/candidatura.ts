@@ -1,8 +1,8 @@
 export type StatusCandidatura = 
-| 'Pendente'
-| 'Aprovado'
-| 'Reprovado'
-| 'Em analise';
+| 'pendente'
+| 'aprovado'
+| 'reprovado'
+| 'em_analise';
 
 export interface Candidatura{
     id: number;
